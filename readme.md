@@ -1,9 +1,9 @@
 Tech Test: Gift Aid Calculator
 ==============================
 
-- Technical test creating a command line application for gift aid calculations in C#
+Technical test creating a command line application for gift aid calculations in C#  
 
-- Gift Aid Amount calculated as:
+Gift Aid Amount calculated as:  
 
 =>  donation_amount * ( tax_rate / (100 - tax_rate ) )
 
