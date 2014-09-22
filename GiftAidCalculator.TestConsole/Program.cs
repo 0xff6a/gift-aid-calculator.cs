@@ -8,15 +8,22 @@ namespace GiftAidCalculator.TestConsole
 		static void PrintMenu()
 		{
 			Console.WriteLine("\n----Gift Aid Calculator 1.0----\n");
-			Console.WriteLine("Please enter an option:\n(1) Calculate Gift Aid\n(2) Update Tax Rate\n(9) Exit");
+			Console.WriteLine("Please enter an option:\n" + 
+					"(1) Calculate Gift Aid\n(2) Update Tax Rate\n(9) Exit");
 		}
 
 		static void CalculateGiftAid()
 		{
-			// Calculate Gift Aid Based on Inputs
+			decimal donation;
+			Event varEvent;
+
 			Console.WriteLine("Please Enter donation amount:");
+			donation = decimal.Parse(Console.ReadLine());
+			Console.WriteLine("Please Enter and event type e.g running:");
+			varEvent = new Event(Console.ReadLine());
+			
 			Console.WriteLine("Gift Aid Amount: {0}", 
-					GiftAidCalculator.GiftAidFor(decimal.Parse(Console.ReadLine())));
+					GiftAidCalculator.GiftAidFor(donation, varEvent));
 			Console.WriteLine("Press any key to continue.");
 			Console.ReadLine();
 		}
