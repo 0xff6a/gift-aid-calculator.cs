@@ -1,13 +1,12 @@
 Tech Test: Gift Aid Calculator
 ==============================
 
-Technical test creating a simple gift aid calculator in C#
+Technical test creating a command line application for gift aid calculations in C#
 
 Technologies:
 -------------
-
-Mono JIT compiler version 3.8.0
-NUnit 2.6.3
+- Mono JIT compiler version 3.8.0
+- NUnit 2.6.3
 
 Objectives:
 -----------
@@ -22,9 +21,6 @@ Classes:
 - User: cannot alter the tax rate
 - Admin: can alter the tax rate
 - Event: can supplement gift aid based on type
-
-Workings:
----------
 
 Running the test suite:
 -----------------------
