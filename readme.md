@@ -33,7 +33,7 @@ From root:
 - $ mcs GiftAidCalculator.Tests/*.cs GiftAidCalculator.TestConsole/*.cs -reference:nunit.framework.dll
 - $ NUNIT-CONSOLE GiftAidCalculator.Tests/*.exe
 
-**Output:**
+Output:
 ```shell
 NUnit version 2.4.8
 Copyright (C) 2002-2007 Charlie Poole.
@@ -54,4 +54,15 @@ Running the application:
 From root:
 - $ mcs GiftAidCalculator.TestConsole/*.cs  
 - $ mono GiftAidCalculator.TestConsole/Calculator.exe 
+
+Output:
+```shell
+----Gift Aid Calculator 1.0----
+
+Please enter an option:
+(1) Calculate Gift Aid
+(2) Update Tax Rate
+(9) Exit
+```
+
 
