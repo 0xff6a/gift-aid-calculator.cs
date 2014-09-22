@@ -58,5 +58,17 @@ namespace GiftAidCalculator.TestConsole
     {
       Assert.IsFalse(myEvent.IsPromoted());
     }
+
+    [Test]
+    public void GiftAidSupplementAdded()
+    {
+      Assert.AreEqual(5.0m, runEvent.GiftAidSupplement());
+    }
+
+    [Test]
+    public void GiftAidSupplementNotAdded()
+    {
+      Assert.AreEqual(0.0m, myEvent.GiftAidSupplement());
+    }
   }
 }

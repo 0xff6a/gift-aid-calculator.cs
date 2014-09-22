@@ -29,8 +29,9 @@ namespace GiftAidCalculatorCollaborators
     {
       Hashtable tbl = new Hashtable();
 
-      tbl.Add("running", 5);
-      tbl.Add("swimming", 3);
+      tbl.Add("running",  5.0m);
+      tbl.Add("swimming", 3.0m);
+      tbl.Add("default",  0.0m);
 
       return tbl;
     }
@@ -50,6 +51,11 @@ namespace GiftAidCalculatorCollaborators
       return IsPromotedType(type);
     }
 
+    public decimal GiftAidSupplement()
+    {
+      return (decimal) promotedTypes[type];
+    }
+
     private void setType(string eventType)
     {
       if(IsPromotedType(eventType))
@@ -60,7 +66,7 @@ namespace GiftAidCalculatorCollaborators
 
     private bool IsPromotedType(string eventType)
     {
-      return promotedTypes.ContainsKey(eventType);
+      return promotedTypes.ContainsKey(eventType) && eventType != "default";
     }
   }
 }
