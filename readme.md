@@ -34,7 +34,7 @@ From root:
 - $ NUNIT-CONSOLE GiftAidCalculator.Tests/*.exe
 
 **Output:**
-
+```shell
 NUnit version 2.4.8
 Copyright (C) 2002-2007 Charlie Poole.
 Copyright (C) 2002-2004 James W. Newkirk, Michael C. Two, Alexei A. Vorontsov.
@@ -47,6 +47,7 @@ Runtime Environment -
 
 ..............
 Tests run: 14, Failures: 0, Not run: 0, Time: 0.034 seconds
+```
 
 Running the application:
 ------------------------
