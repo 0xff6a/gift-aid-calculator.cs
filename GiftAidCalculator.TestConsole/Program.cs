@@ -52,19 +52,43 @@ namespace GiftAidCalculator.TestConsole
 
 	public class Program
 	{
-		static void Main(string[] args)
+		static void PrintMenu()
 		{
-			// Calc Gift Aid Based on Previous
+			Console.WriteLine("\n----Gift Aid Calculator 1.0----\n");
+			Console.WriteLine("Please enter an option:\n(1) Calculate Gift Aid\n(2) Update Tax Rate\n(9) Exit");
+		}
+
+		static void CalculateGiftAid()
+		{
+			// Calculate Gift Aid Based on Inputs
 			Console.WriteLine("Please Enter donation amount:");
-			Console.WriteLine(GiftAidAmount(decimal.Parse(Console.ReadLine())));
-			Console.WriteLine("Press any key to exit.");
+			Console.WriteLine("Gift Aid Amount: {0}", 
+					GiftAidCalculator.GiftAidFor(decimal.Parse(Console.ReadLine())));
+			Console.WriteLine("Press any key to continue.");
 			Console.ReadLine();
 		}
 
-		public static decimal GiftAidAmount(decimal donationAmount)
-		{
-			var gaRatio = 17.5m / (100 - 17.5m);
-			return donationAmount * gaRatio;
+		static void Main(string[] args)
+		{	
+			Menu:
+				PrintMenu();
+				int selection = int.Parse(Console.ReadLine());
+
+			switch (selection)
+			{
+			    case 1:
+			       	CalculateGiftAid();
+			        goto Menu;
+			    case 2:
+			        Console.WriteLine("Case 2");
+			        goto Menu;
+			    case 9:
+			        Console.WriteLine("Goodbye");
+			        break;
+			    default:
+			        Console.WriteLine("Invalid Option: please try again");
+			        goto Menu;
+			}
 		}
 	}
 }
