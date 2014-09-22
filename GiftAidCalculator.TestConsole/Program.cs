@@ -33,7 +33,7 @@ namespace GiftAidCalculator.TestConsole
 			Admin jg = new Admin();
 			decimal newTaxRate;
 
-			Console.WriteLine("Please Enter the new tax rate:");
+			Console.WriteLine("Please Enter the new tax rate in %:");
 			newTaxRate = decimal.Parse(Console.ReadLine());
 			GiftAidCalculator.UpdateTaxRate(newTaxRate, jg);
 			Console.WriteLine("Tax rate updated to: {0}", newTaxRate);
