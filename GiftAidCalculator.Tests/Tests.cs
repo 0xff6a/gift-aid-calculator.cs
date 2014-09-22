@@ -1,11 +1,14 @@
 using NUnit.Framework;
 using GiftAidCalculator;
+using GiftAidCalculatorCollaborators;
 
 namespace GiftAidCalculator.TestConsole
 {
   [TestFixture]
   public class GiftAidCalculatorTest
   {
+    Admin admin = new Admin();
+
     [Test]
     public void SimpleGiftAidCalculation()
     {
@@ -22,6 +25,16 @@ namespace GiftAidCalculator.TestConsole
       decimal roundedGiftAid =  0.31m;
 
       Assert.AreEqual(roundedGiftAid, GiftAidCalculator.GiftAidFor(exactDonation));
+    }
+
+    [Test]
+    public void UpdatingTaxRateAsAdmin()
+    {
+     decimal newTaxRate = 30.0m;
+     
+     GiftAidCalculator.UpdateTaxRate(newTaxRate, admin);
+
+     Assert.AreEqual(newTaxRate, GiftAidCalculator.TaxRate); 
     }
   }
 }

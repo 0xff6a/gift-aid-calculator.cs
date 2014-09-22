@@ -1,4 +1,5 @@
 ﻿using System;
+using GiftAidCalculatorCollaborators;
 
 namespace GiftAidCalculator.TestConsole
 {
@@ -6,6 +7,16 @@ namespace GiftAidCalculator.TestConsole
 	{
 		private static decimal taxRate = 20.0m;
 		private const int decimalPlaces = 2;
+
+		public static decimal TaxRate 
+		{
+			get { return taxRate; }
+		}
+
+		public static void UpdateTaxRate(decimal newTaxRate, User user)
+		{
+			if(user.IsAdmin()) { taxRate = newTaxRate; }
+		}
 
 		public static decimal GiftAidFor(decimal donationAmount)
 		{
