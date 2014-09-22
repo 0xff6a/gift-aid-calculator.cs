@@ -25,9 +25,10 @@ Classes:
 Running the test suite:
 -----------------------
 From root:
-
-- $ mcs GiftAidCalculator.Tests/*.cs GiftAidCalculator.TestConsole/*.cs -reference:nunit.framework.dll
-- $ NUNIT-CONSOLE GiftAidCalculator.Tests/*.exe
+```shell
+$ mcs GiftAidCalculator.Tests/*.cs GiftAidCalculator.TestConsole/*.cs -reference:nunit.framework.dll
+$ NUNIT-CONSOLE GiftAidCalculator.Tests/*.exe
+```
 
 Output:
 ```shell
@@ -48,8 +49,10 @@ Tests run: 14, Failures: 0, Not run: 0, Time: 0.034 seconds
 Running the application:
 ------------------------
 From root:
-- $ mcs GiftAidCalculator.TestConsole/*.cs  
-- $ mono GiftAidCalculator.TestConsole/Calculator.exe 
+```shell
+$ mcs GiftAidCalculator.TestConsole/*.cs  
+$ mono GiftAidCalculator.TestConsole/Calculator.exe 
+```
 
 Output:
 ```shell
