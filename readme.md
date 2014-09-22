@@ -1,29 +1,11 @@
-## Intro
+Running the test suite:
+-----------------------
+From root:
 
-A big part of what we do at [JustGiving](http://www.justgiving.com) is reclaim the [Gift Aid](http://en.wikipedia.org/wiki/Gift_Aid) on donations made to charities. This saves them a lot of time and processing overheads.
+- $ mcs GiftAidCalculator.Tests/*.cs GiftAidCalculator.TestConsole/*.cs -reference:nunit.framework.dll
 
-This assignment is a very small task to create a Gift Aid calculator.
+- $ NUNIT-CONSOLE GiftAidCalculator.Tests/Tests.exe 
 
-For reference, Gift Aid is calculated as follows:
-
-`[Donation Amount] * ( [TaxRate] / (100 - [TaxRate]) )`
-
-- This assignment takes an average of about 30 minutes.
-- We use [NUnit](http://www.nunit.org) and [Moq](http://code.google.com/p/moq) at JustGiving, references have been added using [NuGet](http://nuget.codeplex.com/) Packages. Everything is in place for you to just write the code (no "File > New Project" required).
-
-## Task requirements
-
-- All stories to be completed with an appropriate level of testing.
-- No actual database implementation is required, feel free to stub it out.
-- Your code should trend towards being SOLID.
-- Please [download](https://github.com/JustGiving/Recruitment-Test/archives/master) the [Recruitment-Test repository](https://github.com/JustGiving/Recruitment-Test), complete the tasks as you see fit.
-- Send us a Dropbox/Skydrive/whatever link to your zipped code to ana.henneberke@justgiving.com but please do not send attached zip files via email.
-
-## Task Stories
-
-Please complete each story in order.
-
----
 
 ### Story 1
 

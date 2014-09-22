@@ -5,10 +5,16 @@ namespace GiftAidCalculator.TestConsole
 	public class GiftAidCalculator
 	{
 		private static decimal taxRate = 20.0m;
+		private const int decimalPlaces = 2;
 
 		public static decimal GiftAidFor(decimal donationAmount)
 		{
-			return donationAmount * GiftAidFactor();		
+			return Math.Round(RawGiftAidFor(donationAmount), decimalPlaces);		
+		}
+
+		private static decimal RawGiftAidFor(decimal donationAmount)
+		{
+			return donationAmount * GiftAidFactor();	
 		}
 
 		private static decimal GiftAidFactor()
