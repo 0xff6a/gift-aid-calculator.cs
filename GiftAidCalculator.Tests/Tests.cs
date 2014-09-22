@@ -8,6 +8,7 @@ namespace GiftAidCalculator.TestConsole
   public class GiftAidCalculatorTest
   {
     Admin admin = new Admin();
+    User user = new User();
 
     [Test]
     public void SimpleGiftAidCalculation()
@@ -28,6 +29,14 @@ namespace GiftAidCalculator.TestConsole
     }
 
     [Test]
+    public void RetrievingTaxRate()
+    {
+      decimal expectedTaxRate = 20.0m;
+
+      Assert.AreEqual(expectedTaxRate, GiftAidCalculator.TaxRate);
+    }
+
+    [Test]
     public void UpdatingTaxRateAsAdmin()
     {
      decimal newTaxRate = 30.0m;
@@ -35,6 +44,17 @@ namespace GiftAidCalculator.TestConsole
      GiftAidCalculator.UpdateTaxRate(newTaxRate, admin);
 
      Assert.AreEqual(newTaxRate, GiftAidCalculator.TaxRate); 
+    }
+
+    [Test]
+    public void UpdatingTaxRateAsUser()
+    {
+     decimal newTaxRate = 35.0m;
+     decimal oldTaxRate = 30.0m;
+
+     GiftAidCalculator.UpdateTaxRate(newTaxRate, user);
+
+     Assert.AreEqual(oldTaxRate, GiftAidCalculator.TaxRate); 
     }
   }
 }
