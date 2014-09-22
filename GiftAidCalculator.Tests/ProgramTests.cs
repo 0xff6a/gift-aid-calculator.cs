@@ -9,6 +9,7 @@ namespace GiftAidCalculator.TestConsole
   {
     Admin admin = new Admin();
     User user = new User();
+    Event runEvent = new Event("running");
 
     [Test]
     public void SimpleGiftAidCalculation()
@@ -56,5 +57,14 @@ namespace GiftAidCalculator.TestConsole
 
      Assert.AreEqual(oldTaxRate, GiftAidCalculator.TaxRate); 
     }
+
+    [Test]
+    public void GiftAidSupplementForRunningEvent()
+    {
+      decimal baseAmount = GiftAidCalculator.GiftAidFor(100);
+      decimal supplementedAmount = GiftAidCalculator.GiftAidFor(100, runEvent);
+
+      Assert.AreEqual(baseAmount * 1.05m, supplementedAmount);
+    } 
   }
 }

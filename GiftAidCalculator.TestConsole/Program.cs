@@ -7,6 +7,7 @@ namespace GiftAidCalculator.TestConsole
 	{
 		private static decimal taxRate = 20.0m;
 		private const int decimalPlaces = 2;
+		private const string defaultEventType = "default";
 
 		public static decimal TaxRate 
 		{
@@ -18,19 +19,34 @@ namespace GiftAidCalculator.TestConsole
 			if(user.IsAdmin()) { taxRate = newTaxRate; }
 		}
 
-		public static decimal GiftAidFor(decimal donationAmount)
+		public static decimal GiftAidFor(decimal donationAmount, Event varEvent = null)
 		{
-			return Math.Round(RawGiftAidFor(donationAmount), decimalPlaces);		
+			if(varEvent == null) { varEvent = defaultEvent(); }
+
+			return Math.Round(RawGiftAidFor(donationAmount, varEvent), decimalPlaces);		
 		}
 
-		private static decimal RawGiftAidFor(decimal donationAmount)
+		private static decimal RawGiftAidFor(decimal donationAmount, Event varEvent)
 		{
-			return donationAmount * GiftAidFactor();	
+			if(varEvent.IsPromoted()) 
+				return donationAmount * SupplementedGiftAidFactor(varEvent);
+			else
+				return donationAmount * SimpleGiftAidFactor();	
 		}
 
-		private static decimal GiftAidFactor()
+		private static decimal SupplementedGiftAidFactor(Event varEvent)
+		{
+			return SimpleGiftAidFactor() * (1.0m + varEvent.GiftAidSupplement() / 100);
+		}
+
+		private static decimal SimpleGiftAidFactor()
 		{
 			return taxRate / (100 - taxRate);
+		}
+
+		private static Event defaultEvent()
+		{
+			return new Event(defaultEventType);
 		}
 	}
 

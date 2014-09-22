@@ -23,15 +23,16 @@ namespace GiftAidCalculatorCollaborators
   public class Event
   {
     private string type;
+    private const string defaultType = "default";
     private static Hashtable promotedTypes = PromotedTypesTable();
 
     private static Hashtable PromotedTypesTable()
     {
       Hashtable tbl = new Hashtable();
 
-      tbl.Add("running",  5.0m);
-      tbl.Add("swimming", 3.0m);
-      tbl.Add("default",  0.0m);
+      tbl.Add("running",    5.0m);
+      tbl.Add("swimming",   3.0m);
+      tbl.Add(defaultType,  0.0m);
 
       return tbl;
     }
@@ -61,12 +62,12 @@ namespace GiftAidCalculatorCollaborators
       if(IsPromotedType(eventType))
         type = eventType;
       else
-        type = "default";
+        type = defaultType;
     }
 
     private bool IsPromotedType(string eventType)
     {
-      return promotedTypes.ContainsKey(eventType) && eventType != "default";
+      return promotedTypes.ContainsKey(eventType) && eventType != defaultType;
     }
   }
 }
